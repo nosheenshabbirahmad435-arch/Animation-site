@@ -1,0 +1,114 @@
+/* General Styles */
+body {
+    /* Browser ka default gap remove karta ha */
+  margin: 0;
+  padding: 0;
+  /* text ka font set karna */
+  font-family: 'Arial', sans-serif;
+  /* page height 100% screen height */
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column; /* uper sa nichay  */
+  align-items: center; /* horizontally center */
+  justify-content: center; /* vertically center */
+/* 270 degree -- direction btata ha gradient kis side move karey */
+/* Degree   Direction
+0deg        Bottom → Top
+90deg       Left → Right
+180deg      Top → Bottom
+270deg      Right → Left */
+  background: linear-gradient(270deg, #ff6f61, #61dafb, #ff6f61);/* red---blue---red smooth transition */
+  background-size: 600% 600%;/* background actual screen size sa 6 times bara bnana 600 width 600 hgt ke liye */
+  animation: gradientBG 15s ease infinite;
+  overflow: hidden;/* scrollbar ni aye ga no page movement */
+  color: white; 
+}
+
+/* Background Gradient Animation */
+
+@keyframes gradientBG { /*aniimation ke steps frame define karna  */
+  0% {
+    background-position: 0% 50%;/* is time background kaha ha */
+}
+  50% {
+    background-position: 100% 50%;
+}
+  100% {
+    background-position: 0% 50%;
+}
+}
+
+/* Typing Animation for Header */
+.typing {
+  font-size: 2.5rem;
+  border-right: 3px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typingEffect 4s steps(30, end) forwards, blink 0.75s step-end infinite;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+@keyframes typingEffect {
+  from { 
+    width: 0; 
+}
+  to { 
+    width: 28ch; 
+     }
+}
+
+@keyframes blink {
+  50% {
+     border-color: transparent;
+    
+    }
+}
+
+/* Ball Styles */
+.ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50px;
+  animation: bounce 3s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.ball:hover {
+  transform: scale(1.3);
+  background: #ffeb3b;
+}
+
+/* Different balls with different animations */
+.ball1 {
+  left: 20%;
+  background: #ff6f61;
+  animation-delay: 0s;
+}
+
+.ball2 {
+  left: 50%;
+  background: #61dafb;
+  animation-delay: 0.5s;
+}
+
+.ball3 {
+  left: 80%;
+  background: #4caf50;
+  animation-delay: 1s;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% {
+     transform: translateY(0);
+     }
+  50% {
+     transform: translateY(-200px); 
+    }
+}
